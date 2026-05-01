@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MemeBox</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>MemeBox</h1>
+    <p>Click to play • Press 1-9 for shortcuts</p>
+  </header>
+
+  
+  <div class="filter-bar">
+    <button class="filter-btn active" data-country="all">🌍 All</button>
+    <button class="filter-btn" data-country="usa">🇺🇸 USA</button>
+    <button class="filter-btn" data-country="uk">🇬🇧 UK</button>
+    <button class="filter-btn" data-country="asia">🌏 Asia</button>
+    <button class="filter-btn" data-country="global">🌐 Global</button>
+  </div>
+
+  
+  <div class="meme-grid">
+    
+   
+    <div class="meme-card" data-country="usa">
+      <div class="video-container">
+        <video id="meme1" loop muted>
+          <source src="memes/wednesday.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="card-info">
+        <h3>It is Wednesday My Dudes</h3>
+        <span class="country-tag">🇺🇸 USA</span>
+      </div>
+      <div class="controls">
+        <button class="play-btn" onclick="toggleMeme('meme1', this)">
+          ▶️ Play
+        </button>
+        <div class="volume-control">
+          <span class="volume-icon">🔊</span>
+          <input type="range" class="volume-slider" min="0" max="100" value="70" 
+                 oninput="setVolume('meme1', this.value)">
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="meme-card" data-country="asia">
+      <div class="video-container">
+        <video id="meme2" loop muted>
+          <source src="memes/emotional-damage.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="card-info">
+        <h3>Emotional Damage</h3>
+        <span class="country-tag">🌏 Asia</span>
+
+      </div>
+      <div class="controls">
+        <button class="play-btn" onclick="toggleMeme('meme2', this)">
+          ▶️ Play
+        </button>
+
+        <div class="volume-control">
+          <span class="volume-icon">🔊</span>
+          <input type="range" class="volume-slider" min="0" max="100" value="70" 
+                 oninput="setVolume('meme2', this.value)">
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="meme-card" data-country="global">
+      <div class="video-container">
+        <video id="meme3" loop muted>
+          <source src="memes/coffin-dance.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="card-info">
+        <h3>Coffin Dance</h3>
+
+        <span class="country-tag">🌐 Global</span>
+      </div>
+      <div class="controls">
+        <button class="play-btn" onclick="toggleMeme('meme3', this)">
+          ▶️ Play
+        </button>
+        <div class="volume-control">
+
+          <span class="volume-icon">🔊</span>
+          <input type="range" class="volume-slider" min="0" max="100" value="70" 
+                 oninput="setVolume('meme3', this.value)">
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="meme-card" data-country="usa">
+      <div class="video-container">
+        <video id="meme4" loop muted>
+
+          <source src="memes/john-cena.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="card-info">
+        <h3>John Cena Intro</h3>
+
+        <span class="country-tag">🇺🇸 USA</span>
+      </div>
+      <div class="controls">
+        <button class="play-btn" onclick="toggleMeme('meme4', this)">
+          ▶️ Play
+        </button>
+        <div class="volume-control">
+          <span class="volume-icon">🔊</span>
+          <input type="range" class="volume-slider" min="0" max="100" value="70" 
+                 oninput="setVolume('meme4', this.value)">
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="meme-card" data-country="global">
+      <div class="video-container">
+        <video id="meme5" loop muted>
+
+          <source src="memes/surprised-pikachu.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="card-info">
+        <h3>Surprised Pikachu</h3>
+        <span class="country-tag">🌐 Global</span>
+      </div>
+
+      <div class="controls">
+        <button class="play-btn" onclick="toggleMeme('meme5', this)">
+          ▶️ Play
+        </button>
+        <div class="volume-control">
+          <span class="volume-icon">🔊</span>
+		  
+          <input type="range" class="volume-slider" min="0" max="100" value="70" 
+                 oninput="setVolume('meme5', this.value)">
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="meme-card" data-country="usa">
+      <div class="video-container">
+        <video id="meme6" loop muted>
+          <source src="memes/vine-boom.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="card-info">
+        <h3>Vine Boom</h3>
+        <span class="country-tag">🇺🇸 USA</span>
+      </div>
+      <div class="controls">
+
+        <button class="play-btn" onclick="toggleMeme('meme6', this)">
+          ▶️ Play
+        </button>
+        <div class="volume-control">
+          <span class="volume-icon">🔊</span>
+          <input type="range" class="volume-slider" min="0" max="100" value="70" 
+
+                 oninput="setVolume('meme6', this.value)">
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="meme-card" data-country="uk">
+      <div class="video-container">
+        <video id="meme7" loop muted>
+          <source src="memes/cheeky-nandos.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="card-info">
+        <h3>Cheeky Nando's</h3>
+        <span class="country-tag">🇬🇧 UK</span>
+
+      </div>
+      <div class="controls">
+        <button class="play-btn" onclick="toggleMeme('meme7', this)">
+          ▶️ Play
+        </button>
+        <div class="volume-control">
+          <span class="volume-icon">🔊</span>
+          <input type="range" class="volume-slider" min="0" max="100" value="70" 
+                 oninput="setVolume('meme7', this.value)">
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="meme-card" data-country="asia">
+      <div class="video-container">
+        <video id="meme8" loop muted>
+          <source src="memes/social-credit.mp4" type="video/mp4">
+        </video>
+
+      </div>
+      <div class="card-info">
+        <h3>Social Credit Meme</h3>
+        <span class="country-tag">🌏 Asia</span>
+      </div>
+      <div class="controls">
+        <button class="play-btn" onclick="toggleMeme('meme8', this)">
+          ▶️ Play
+        </button>
+        <div class="volume-control">
+          <span class="volume-icon">🔊</span>
+          <input type="range" class="volume-slider" min="0" max="100" value="70" 
+                 oninput="setVolume('meme8', this.value)">
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="meme-card" data-country="global">
+      <div class="video-container">
+        <video id="meme9" loop muted>
+          <source src="memes/this-is-fine.mp4" type="video/mp4">
+        </video>
+
+      </div>
+      <div class="card-info">
+        <h3>This Is Fine</h3>
+        <span class="country-tag">🌐 Global</span>
+      </div>
+      <div class="controls">
+        <button class="play-btn" onclick="toggleMeme('meme9', this)">
+          ▶️ Play
+
+        </button>
+        <div class="volume-control">
+          <span class="volume-icon">🔊</span>
+
+          <input type="range" class="volume-slider" min="0" max="100" value="70" 
+                 oninput="setVolume('meme9', this.value)">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
