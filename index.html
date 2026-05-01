@@ -4,253 +4,539 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MemeBox</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #000000;
+      color: #ffffff;
+      font-family: 'Arial', sans-serif;
+      padding: 20px;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 50px;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 4rem;
+      color: #ff0000;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      margin-bottom: 20px;
+      text-shadow: 4px 4px 0px rgba(255, 0, 0, 0.3);
+    }
+
+    .filter-container {
+      position: absolute;
+      right: 40px;
+      top: 20px;
+    }
+
+    .filter-dropdown {
+      padding: 12px 20px;
+      background: #ff0000;
+      color: #000000;
+      border: 3px solid #000000;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      outline: none;
+    }
+
+    .filter-dropdown:hover {
+      background: #ffffff;
+      color: #000000;
+      border-color: #ff0000;
+    }
+
+    .filter-dropdown option {
+      background: #000000;
+      color: #ffffff;
+      padding: 10px;
+    }
+
+    .meme-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .meme-card {
+      background: #1a1a1a;
+      border: 4px solid #ff0000;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease;
+    }
+
+    .meme-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .meme-card.hidden {
+      display: none;
+    }
+
+    .image-container {
+      width: 100%;
+      height: 250px;
+      background: #000000;
+      border-bottom: 4px solid #ff0000;
+      overflow: hidden;
+    }
+
+    .placeholder {
+      width: 100%;
+      height: 100%;
+      background: #0a0a0a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-info {
+      padding: 20px;
+      background: #1a1a1a;
+    }
+
+    .card-info h3 {
+      font-size: 1.3rem;
+      color: #ffffff;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .country-tag {
+      display: inline-block;
+      padding: 5px 15px;
+      background: #ff0000;
+      color: #000000;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+      padding: 0 20px 15px 20px;
+    }
+
+    .play-btn,
+    .stop-btn {
+      flex: 1;
+      padding: 15px;
+      background: #ff0000;
+      border: 3px solid #000000;
+      color: #000000;
+      font-size: 1rem;
+      font-weight: 900;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+
+    .play-btn:hover,
+    .stop-btn:hover {
+      background: #ffffff;
+      color: #000000;
+      border-color: #ff0000;
+    }
+
+    .play-btn:active,
+    .stop-btn:active {
+      transform: scale(0.95);
+    }
+
+    .volume-control {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 15px 20px 20px 20px;
+      background: #1a1a1a;
+    }
+
+    .volume-icon {
+      font-size: 1.3rem;
+      min-width: 25px;
+    }
+
+    .volume-slider {
+      flex: 1;
+      height: 8px;
+      -webkit-appearance: none;
+      appearance: none;
+      background: #333333;
+      outline: none;
+      border: 2px solid #ff0000;
+      cursor: pointer;
+    }
+
+    .volume-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      background: #ff0000;
+      cursor: pointer;
+      border: 2px solid #000000;
+    }
+
+    .volume-slider::-webkit-slider-thumb:hover {
+      background: #ffffff;
+    }
+
+    .volume-slider::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      background: #ff0000;
+      cursor: pointer;
+      border: 2px solid #000000;
+    }
+
+    .volume-slider::-moz-range-thumb:hover {
+      background: #ffffff;
+    }
+
+    @media (max-width: 1024px) {
+      .filter-container {
+        position: static;
+        margin-top: 20px;
+      }
+      
+      h1 {
+        font-size: 3rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      .meme-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      
+      .filter-dropdown {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2rem;
+        letter-spacing: 2px;
+      }
+      
+      .card-info h3 {
+        font-size: 1.1rem;
+      }
+      
+      .controls {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 <body>
 
   <header>
     <h1>MemeBox</h1>
-    <p>Click to play • Press 1-9 for shortcuts</p>
+    
+    <div class="filter-container">
+      <select class="filter-dropdown" id="countryFilter">
+        <option value="all">All Countries</option>
+        <option value="usa">USA</option>
+        <option value="australia">Australia</option>
+        <option value="canada">Canada</option>
+        <option value="india">India</option>
+        <option value="pakistan">Pakistan</option>
+        <option value="bangladesh">Bangladesh</option>
+        <option value="srilanka">Sri Lanka</option>
+        <option value="nepal">Nepal</option>
+        <option value="china">China</option>
+        <option value="japan">Japan</option>
+        <option value="southkorea">South Korea</option>
+        <option value="thailand">Thailand</option>
+        <option value="vietnam">Vietnam</option>
+        <option value="philippines">Philippines</option>
+      </select>
+    </div>
   </header>
 
-  
-  <div class="filter-bar">
-    <button class="filter-btn active" data-country="all">🌍 All</button>
-    <button class="filter-btn" data-country="usa">🇺🇸 USA</button>
-    <button class="filter-btn" data-country="uk">🇬🇧 UK</button>
-    <button class="filter-btn" data-country="asia">🌏 Asia</button>
-    <button class="filter-btn" data-country="global">🌐 Global</button>
-  </div>
-
-  
   <div class="meme-grid">
     
-   
     <div class="meme-card" data-country="usa">
-      <div class="video-container">
-        <video id="meme1" loop muted>
-          <source src="memes/wednesday.mp4" type="video/mp4">
-        </video>
+      <div class="image-container">
+        <div class="placeholder"></div>
       </div>
       <div class="card-info">
-        <h3>It is Wednesday My Dudes</h3>
-        <span class="country-tag">🇺🇸 USA</span>
+        <h3>Wednesday Frog</h3>
+        <span class="country-tag">USA</span>
       </div>
       <div class="controls">
-        <button class="play-btn" onclick="toggleMeme('meme1', this)">
-          ▶️ Play
-        </button>
-        <div class="volume-control">
-          <span class="volume-icon">🔊</span>
-          <input type="range" class="volume-slider" min="0" max="100" value="70" 
-                 oninput="setVolume('meme1', this.value)">
-        </div>
+        <button class="play-btn">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
       </div>
     </div>
 
-    
-    <div class="meme-card" data-country="asia">
-      <div class="video-container">
-        <video id="meme2" loop muted>
-          <source src="memes/emotional-damage.mp4" type="video/mp4">
-        </video>
+    <div class="meme-card" data-country="china">
+      <div class="image-container">
+        <div class="placeholder"></div>
       </div>
       <div class="card-info">
         <h3>Emotional Damage</h3>
-        <span class="country-tag">🌏 Asia</span>
-
+        <span class="country-tag">China</span>
       </div>
       <div class="controls">
-        <button class="play-btn" onclick="toggleMeme('meme2', this)">
-          ▶️ Play
-        </button>
-
-        <div class="volume-control">
-          <span class="volume-icon">🔊</span>
-          <input type="range" class="volume-slider" min="0" max="100" value="70" 
-                 oninput="setVolume('meme2', this.value)">
-        </div>
+        <button class="play-btn">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
       </div>
     </div>
 
-    
-    <div class="meme-card" data-country="global">
-      <div class="video-container">
-        <video id="meme3" loop muted>
-          <source src="memes/coffin-dance.mp4" type="video/mp4">
-        </video>
+    <div class="meme-card" data-country="australia">
+      <div class="image-container">
+        <div class="placeholder"></div>
       </div>
       <div class="card-info">
         <h3>Coffin Dance</h3>
-
-        <span class="country-tag">🌐 Global</span>
+        <span class="country-tag">Australia</span>
       </div>
       <div class="controls">
-        <button class="play-btn" onclick="toggleMeme('meme3', this)">
-          ▶️ Play
-        </button>
-        <div class="volume-control">
-
-          <span class="volume-icon">🔊</span>
-          <input type="range" class="volume-slider" min="0" max="100" value="70" 
-                 oninput="setVolume('meme3', this.value)">
-        </div>
+        <button class="play-btn">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
       </div>
     </div>
 
-    
     <div class="meme-card" data-country="usa">
-      <div class="video-container">
-        <video id="meme4" loop muted>
-
-          <source src="memes/john-cena.mp4" type="video/mp4">
-        </video>
+      <div class="image-container">
+        <div class="placeholder"></div>
       </div>
       <div class="card-info">
-        <h3>John Cena Intro</h3>
-
-        <span class="country-tag">🇺🇸 USA</span>
+        <h3>John Cena</h3>
+        <span class="country-tag">USA</span>
       </div>
       <div class="controls">
-        <button class="play-btn" onclick="toggleMeme('meme4', this)">
-          ▶️ Play
-        </button>
-        <div class="volume-control">
-          <span class="volume-icon">🔊</span>
-          <input type="range" class="volume-slider" min="0" max="100" value="70" 
-                 oninput="setVolume('meme4', this.value)">
-        </div>
+        <button class="play-btn">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
       </div>
     </div>
 
-    
-    <div class="meme-card" data-country="global">
-      <div class="video-container">
-        <video id="meme5" loop muted>
-
-          <source src="memes/surprised-pikachu.mp4" type="video/mp4">
-        </video>
+    <div class="meme-card" data-country="japan">
+      <div class="image-container">
+        <div class="placeholder"></div>
       </div>
       <div class="card-info">
         <h3>Surprised Pikachu</h3>
-        <span class="country-tag">🌐 Global</span>
+        <span class="country-tag">Japan</span>
       </div>
-
       <div class="controls">
-        <button class="play-btn" onclick="toggleMeme('meme5', this)">
-          ▶️ Play
-        </button>
-        <div class="volume-control">
-          <span class="volume-icon">🔊</span>
-		  
-          <input type="range" class="volume-slider" min="0" max="100" value="70" 
-                 oninput="setVolume('meme5', this.value)">
-        </div>
+        <button class="play-btn">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
       </div>
     </div>
 
-    
-    <div class="meme-card" data-country="usa">
-      <div class="video-container">
-        <video id="meme6" loop muted>
-          <source src="memes/vine-boom.mp4" type="video/mp4">
-        </video>
+    <div class="meme-card" data-country="canada">
+      <div class="image-container">
+        <div class="placeholder"></div>
       </div>
       <div class="card-info">
         <h3>Vine Boom</h3>
-        <span class="country-tag">🇺🇸 USA</span>
+        <span class="country-tag">Canada</span>
       </div>
       <div class="controls">
-
-        <button class="play-btn" onclick="toggleMeme('meme6', this)">
-          ▶️ Play
-        </button>
-        <div class="volume-control">
-          <span class="volume-icon">🔊</span>
-          <input type="range" class="volume-slider" min="0" max="100" value="70" 
-
-                 oninput="setVolume('meme6', this.value)">
-        </div>
+        <button class="play-btn">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
       </div>
     </div>
 
-    
-    <div class="meme-card" data-country="uk">
-      <div class="video-container">
-        <video id="meme7" loop muted>
-          <source src="memes/cheeky-nandos.mp4" type="video/mp4">
-        </video>
+    <div class="meme-card" data-country="india">
+      <div class="image-container">
+        <div class="placeholder"></div>
       </div>
       <div class="card-info">
-        <h3>Cheeky Nando's</h3>
-        <span class="country-tag">🇬🇧 UK</span>
-
+        <h3>Tunak Tunak</h3>
+        <span class="country-tag">India</span>
       </div>
       <div class="controls">
-        <button class="play-btn" onclick="toggleMeme('meme7', this)">
-          ▶️ Play
-        </button>
-        <div class="volume-control">
-          <span class="volume-icon">🔊</span>
-          <input type="range" class="volume-slider" min="0" max="100" value="70" 
-                 oninput="setVolume('meme7', this.value)">
-        </div>
+        <button class="play-btn">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
       </div>
     </div>
 
-    
-    <div class="meme-card" data-country="asia">
-      <div class="video-container">
-        <video id="meme8" loop muted>
-          <source src="memes/social-credit.mp4" type="video/mp4">
-        </video>
-
+    <div class="meme-card" data-country="southkorea">
+      <div class="image-container">
+        <div class="placeholder"></div>
       </div>
       <div class="card-info">
-        <h3>Social Credit Meme</h3>
-        <span class="country-tag">🌏 Asia</span>
+        <h3>Gangnam Style</h3>
+        <span class="country-tag">South Korea</span>
       </div>
       <div class="controls">
-        <button class="play-btn" onclick="toggleMeme('meme8', this)">
-          ▶️ Play
-        </button>
-        <div class="volume-control">
-          <span class="volume-icon">🔊</span>
-          <input type="range" class="volume-slider" min="0" max="100" value="70" 
-                 oninput="setVolume('meme8', this.value)">
-        </div>
+        <button class="play-btn">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
       </div>
     </div>
 
-    
-    <div class="meme-card" data-country="global">
-      <div class="video-container">
-        <video id="meme9" loop muted>
-          <source src="memes/this-is-fine.mp4" type="video/mp4">
-        </video>
-
+    <div class="meme-card" data-country="pakistan">
+      <div class="image-container">
+        <div class="placeholder"></div>
       </div>
       <div class="card-info">
-        <h3>This Is Fine</h3>
-        <span class="country-tag">🌐 Global</span>
+        <h3>Pawri Ho Rahi Hai</h3>
+        <span class="country-tag">Pakistan</span>
       </div>
       <div class="controls">
-        <button class="play-btn" onclick="toggleMeme('meme9', this)">
-          ▶️ Play
+        <button class="play-btn">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+      </div>
+    </div>
 
-        </button>
-        <div class="volume-control">
-          <span class="volume-icon">🔊</span>
+    <div class="meme-card" data-country="usa">
+      <div class="image-container">
+        <div class="placeholder"></div>
+      </div>
+      <div class="card-info">
+        <h3>Sad Trombone</h3>
+        <span class="country-tag">USA</span>
+      </div>
+      <div class="controls">
+        <button class="play-btn">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+      </div>
+    </div>
 
-          <input type="range" class="volume-slider" min="0" max="100" value="70" 
-                 oninput="setVolume('meme9', this.value)">
-        </div>
+    <div class="meme-card" data-country="thailand">
+      <div class="image-container">
+        <div class="placeholder"></div>
+      </div>
+      <div class="card-info">
+        <h3>Taxi Song</h3>
+        <span class="country-tag">Thailand</span>
+      </div>
+      <div class="controls">
+        <button class="play-btn">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+      </div>
+    </div>
+
+    <div class="meme-card" data-country="bangladesh">
+      <div class="image-container">
+        <div class="placeholder"></div>
+      </div>
+      <div class="card-info">
+        <h3>Cricket Celebration</h3>
+        <span class="country-tag">Bangladesh</span>
+      </div>
+      <div class="controls">
+        <button class="play-btn">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
       </div>
     </div>
 
   </div>
 
+  <script>
+    const filterDropdown = document.getElementById('countryFilter');
+    const memeCards = document.querySelectorAll('.meme-card');
 
-  <script src="script.js"></script>
+    filterDropdown.addEventListener('change', () => {
+      const selectedCountry = filterDropdown.value;
+      
+      memeCards.forEach(card => {
+        if (selectedCountry === 'all' || card.dataset.country === selectedCountry) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+
+    const playButtons = document.querySelectorAll('.play-btn');
+    const stopButtons = document.querySelectorAll('.stop-btn');
+
+    playButtons.forEach((button, index) => {
+      button.addEventListener('click', () => {
+        button.style.background = '#ffffff';
+        button.style.color = '#000000';
+      });
+    });
+    
+
+    stopButtons.forEach((button, index) => {
+      button.addEventListener('click', () => {
+        const card = button.closest('.meme-card');
+        const playBtn = card.querySelector('.play-btn');
+        playBtn.style.background = '#ff0000';
+        playBtn.style.color = '#000000';
+      });
+    });
+  </script>
 </body>
 </html>
