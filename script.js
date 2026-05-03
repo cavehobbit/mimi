@@ -10,6 +10,7 @@ filterDropdown.addEventListener('change', () => {
     } else {
       card.classList.add('hidden');
     }
+    
   });
 });
 

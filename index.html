@@ -4,20 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MemeBox</title>
-
   <style>
     * {
-
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-
     body {
       background: #000000;
       color: #ffffff;
-
       font-family: 'Arial', sans-serif;
       padding: 20px;
       min-height: 100vh;
@@ -29,8 +25,6 @@
       margin-bottom: 50px;
       position: relative;
     }
-
-
 
     h1 {
       font-size: 4rem;
@@ -82,7 +76,6 @@
       padding: 0 20px;
     }
 
-
     .meme-card {
       background: #1a1a1a;
       border: 4px solid #ff0000;
@@ -98,28 +91,6 @@
     .meme-card.hidden {
       display: none;
     }
-
-
-
-    .image-container {
-      width: 100%;
-      height: 250px;
-      background: #000000;
-      border-bottom: 4px solid #ff0000;
-      overflow: hidden;
-    }
-
-
-
-    .placeholder {
-      width: 100%;
-      height: 100%;
-      background: #0a0a0a;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
 
     .card-info {
       padding: 20px;
@@ -210,7 +181,6 @@
       border: 2px solid #000000;
     }
 
-
     .volume-slider::-webkit-slider-thumb:hover {
       background: #ffffff;
     }
@@ -258,8 +228,6 @@
         font-size: 2rem;
         letter-spacing: 2px;
       }
-
-
       
       .card-info h3 {
         font-size: 1.1rem;
@@ -269,8 +237,6 @@
         flex-direction: column;
       }
     }
-
-
   </style>
 </head>
 <body>
@@ -278,200 +244,121 @@
   <header>
     <h1>MemeBox</h1>
     
-
     <div class="filter-container">
       <select class="filter-dropdown" id="countryFilter">
         <option value="all">All Countries</option>
         <option value="usa">USA</option>
-        <option value="australia">Australia</option>
-        <option value="canada">Canada</option>
-        <option value="india">India</option>
         <option value="pakistan">Pakistan</option>
-        <option value="bangladesh">Bangladesh</option>
-        <option value="srilanka">Sri Lanka</option>
-        <option value="nepal">Nepal</option>
-        <option value="china">China</option>
-        <option value="japan">Japan</option>
-        <option value="southkorea">South Korea</option>
-        <option value="thailand">Thailand</option>
-        <option value="vietnam">Vietnam</option>
-        <option value="philippines">Philippines</option>
+        <option value="india">India</option>
+        <option value="russia">Russia</option>
+        <option value="germany">Germany</option>
+        <option value="poland">Poland</option>
+        <option value="spain">Spain</option>
+        <option value="uk">UK</option>
+        <option value="newzealand">New Zealand</option>
       </select>
     </div>
   </header>
 
   <div class="meme-grid">
     
-    <div class="meme-card" data-country="usa">
-      <div class="image-container">
-
-        <div class="placeholder"></div>
-      </div>
+    <div class="meme-card" data-country="all">
       <div class="card-info">
-        <h3>Wednesday Frog</h3>
-        <span class="country-tag">USA</span>
+        <h3>Fart</h3>
+        <span class="country-tag">All</span>
       </div>
-
       <div class="controls">
-        <button class="play-btn">▶ Play</button>
+        <button class="play-btn" data-audio="memes/fart.mp3">▶ Play</button>
         <button class="stop-btn">■ Stop</button>
       </div>
-
       <div class="volume-control">
         <span class="volume-icon">🔊</span>
         <input type="range" class="volume-slider" min="0" max="100" value="70">
       </div>
     </div>
 
-
-
-
-    <div class="meme-card" data-country="china">
-      <div class="image-container">
-        <div class="placeholder"></div>
-      </div>
+    <div class="meme-card" data-country="all">
       <div class="card-info">
-
-
-
-        <h3>Emotional Damage</h3>
-        <span class="country-tag">China</span>
+        <h3>Foto</h3>
+        <span class="country-tag">All</span>
       </div>
       <div class="controls">
-
-        <button class="play-btn">▶ Play</button>
+        <button class="play-btn" data-audio="memes/foto.mp3">▶ Play</button>
         <button class="stop-btn">■ Stop</button>
       </div>
       <div class="volume-control">
-        <span class="volume-icon">🔊</span>
-
-        <input type="range" class="volume-slider" min="0" max="100" value="70">
-      </div>
-    </div>
-
-    <div class="meme-card" data-country="australia">
-      <div class="image-container">
-
-        <div class="placeholder"></div>
-      </div>
-      <div class="card-info">
-
-        <h3>Coffin Dance</h3>
-        <span class="country-tag">Australia</span>
-      </div>
-      <div class="controls">
-        <button class="play-btn">▶ Play</button>
-
-        <button class="stop-btn">■ Stop</button>
-      </div>
-
-      <div class="volume-control">
-
-        <span class="volume-icon">🔊</span>
-
-        <input type="range" class="volume-slider" min="0" max="100" value="70">
-      </div>
-    </div>
-
-    <div class="meme-card" data-country="usa">
-      <div class="image-container">
-
-        <div class="placeholder"></div>
-      </div>
-      <div class="card-info">
-        <h3>John Cena</h3>
-
-        <span class="country-tag">USA</span>
-      </div>
-      <div class="controls">
-        <button class="play-btn">▶ Play</button>
-
-        <button class="stop-btn">■ Stop</button>
-      </div>
-      <div class="volume-control">
-
         <span class="volume-icon">🔊</span>
         <input type="range" class="volume-slider" min="0" max="100" value="70">
       </div>
     </div>
 
-    <div class="meme-card" data-country="japan">
-      <div class="image-container">
-
-        <div class="placeholder"></div>
-      </div>
+    <div class="meme-card" data-country="all">
       <div class="card-info">
-        <h3>Surprised Pikachu</h3>
-
-        <span class="country-tag">Japan</span>
+        <h3>Illegal</h3>
+        <span class="country-tag">All</span>
       </div>
       <div class="controls">
-        <button class="play-btn">▶ Play</button>
-
+        <button class="play-btn" data-audio="memes/illegal.mp3">▶ Play</button>
         <button class="stop-btn">■ Stop</button>
       </div>
       <div class="volume-control">
-
         <span class="volume-icon">🔊</span>
         <input type="range" class="volume-slider" min="0" max="100" value="70">
       </div>
     </div>
 
-    <div class="meme-card" data-country="canada">
-      <div class="image-container">
-
-        <div class="placeholder"></div>
-      </div>
+    <div class="meme-card" data-country="all">
       <div class="card-info">
-        <h3>Vine Boom</h3>
-        <span class="country-tag">Canada</span>
+        <h3>Surprise</h3>
+        <span class="country-tag">All</span>
       </div>
       <div class="controls">
-        <button class="play-btn">▶ Play</button>
-
+        <button class="play-btn" data-audio="memes/Surprise.mp3">▶ Play</button>
         <button class="stop-btn">■ Stop</button>
       </div>
       <div class="volume-control">
-
         <span class="volume-icon">🔊</span>
         <input type="range" class="volume-slider" min="0" max="100" value="70">
       </div>
     </div>
 
-
-
-    <div class="meme-card" data-country="india">
-      <div class="image-container">
-
-        <div class="placeholder"></div>
-      </div>
+    <div class="meme-card" data-country="all">
       <div class="card-info">
-        <h3>Tunak Tunak</h3>
-        <span class="country-tag">India</span>
-
+        <h3>IDK</h3>
+        <span class="country-tag">All</span>
       </div>
       <div class="controls">
-        <button class="play-btn">▶ Play</button>
+        <button class="play-btn" data-audio="memes/idk.mp3">▶ Play</button>
         <button class="stop-btn">■ Stop</button>
       </div>
       <div class="volume-control">
         <span class="volume-icon">🔊</span>
-
         <input type="range" class="volume-slider" min="0" max="100" value="70">
       </div>
     </div>
 
-    <div class="meme-card" data-country="southkorea">
-      <div class="image-container">
-
-        <div class="placeholder"></div>
-      </div>
+    <div class="meme-card" data-country="all">
       <div class="card-info">
-        <h3>Gangnam Style</h3>
-        <span class="country-tag">South Korea</span>
+        <h3>Stupid</h3>
+        <span class="country-tag">All</span>
       </div>
       <div class="controls">
-        <button class="play-btn">▶ Play</button>
+        <button class="play-btn" data-audio="memes/stupid.mp3">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+      </div>
+    </div>
+
+    <div class="meme-card" data-country="all">
+      <div class="card-info">
+        <h3>Morning</h3>
+        <span class="country-tag">All</span>
+      </div>
+      <div class="controls">
+        <button class="play-btn" data-audio="memes/morning.mp4">▶ Play</button>
         <button class="stop-btn">■ Stop</button>
       </div>
       <div class="volume-control">
@@ -481,15 +368,192 @@
     </div>
 
     <div class="meme-card" data-country="pakistan">
-      <div class="image-container">
-        <div class="placeholder"></div>
-      </div>
       <div class="card-info">
-        <h3>Pawri Ho Rahi Hai</h3>
+        <h3>O Bhai Maro</h3>
         <span class="country-tag">Pakistan</span>
+
       </div>
       <div class="controls">
-        <button class="play-btn">▶ Play</button>
+        <button class="play-btn" data-audio="memes/o-bhai-maro-mujhe-maro.mp3">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+      </div>
+    </div>
+
+
+    <div class="meme-card" data-country="pakistan">
+      <div class="card-info">
+        <h3>Kelaaa</h3>
+        <span class="country-tag">Pakistan</span>
+
+      </div>
+      <div class="controls">
+        
+        <button class="play-btn" data-audio="memes/kelaaa.mp3">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+      </div>
+    </div>
+
+    <div class="meme-card" data-country="india">
+      <div class="card-info">
+        <h3>Armpit</h3>
+        <span class="country-tag">India</span>
+      </div>
+      <div class="controls">
+        <button class="play-btn" data-audio="memes/armpit.mp3">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+      </div>
+    </div>
+
+    <div class="meme-card" data-country="india">
+      <div class="card-info">
+        <h3>Ek Jhaat Bhar Ka</h3>
+        <span class="country-tag">India</span>
+      </div>
+      <div class="controls">
+        <button class="play-btn" data-audio="memes/ek-jhaat-bhar-ka-aadmi.mp3">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+      </div>
+    </div>
+
+    <div class="meme-card" data-country="india">
+      <div class="card-info">
+        <h3>Modi</h3>
+        <span class="country-tag">India</span>
+      </div>
+      <div class="controls">
+        <button class="play-btn" data-audio="memes/modi.mp3">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+      </div>
+    </div>
+
+    <div class="meme-card" data-country="india">
+      <div class="card-info">
+        <h3>Error</h3>
+        <span class="country-tag">India</span>
+      </div>
+      <div class="controls">
+        <button class="play-btn" data-audio="memes/error.mp3">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+      </div>
+    </div>
+
+    <div class="meme-card" data-country="usa">
+      <div class="card-info">
+        <h3>Fart With Reverb</h3>
+        <span class="country-tag">USA</span>
+
+      </div>
+      <div class="controls">
+        <button class="play-btn" data-audio="memes/fart.mp3">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+
+      </div>
+    </div>
+
+    <div class="meme-card" data-country="usa">
+      <div class="card-info">
+        <h3>Crying Cat</h3>
+        <span class="country-tag">USA</span>
+      </div>
+      <div class="controls">
+        <button class="play-btn" data-audio="memes/crying-cat.mp3">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+      </div>
+    </div>
+
+    <div class="meme-card" data-country="usa">
+      <div class="card-info">
+        <h3>Dear Basketball</h3>
+        <span class="country-tag">USA</span>
+      </div>
+
+      <div class="controls">
+        <button class="play-btn" data-audio="memes/dear-basketball.mp3">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+
+      </div>
+    </div>
+
+    <div class="meme-card" data-country="usa">
+      <div class="card-info">
+        <h3>Jojo</h3>
+        <span class="country-tag">USA</span>
+      </div>
+      <div class="controls">
+        <button class="play-btn" data-audio="memes/jojo.mp3">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+
+
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+      </div>
+    </div>
+
+    <div class="meme-card" data-country="usa">
+      <div class="card-info">
+        <h3>Hood Classic</h3>
+
+        <span class="country-tag">USA</span>
+      </div>
+      <div class="controls">
+        <button class="play-btn" data-audio="memes/hood.mp3">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+      </div>
+    </div>
+
+    <div class="meme-card" data-country="usa">
+      <div class="card-info">
+        <h3>Language Cap America</h3>
+        <span class="country-tag">USA</span>
+      </div>
+      <div class="controls">
+        <button class="play-btn" data-audio="memes/langCapAmerica.mp3">▶ Play</button>
         <button class="stop-btn">■ Stop</button>
       </div>
       <div class="volume-control">
@@ -499,15 +563,12 @@
     </div>
 
     <div class="meme-card" data-country="usa">
-      <div class="image-container">
-        <div class="placeholder"></div>
-      </div>
       <div class="card-info">
-        <h3>Sad Trombone</h3>
+        <h3>Bek</h3>
         <span class="country-tag">USA</span>
       </div>
       <div class="controls">
-        <button class="play-btn">▶ Play</button>
+        <button class="play-btn" data-audio="memes/bek.mp4">▶ Play</button>
         <button class="stop-btn">■ Stop</button>
       </div>
       <div class="volume-control">
@@ -516,16 +577,13 @@
       </div>
     </div>
 
-    <div class="meme-card" data-country="thailand">
-      <div class="image-container">
-        <div class="placeholder"></div>
-      </div>
+    <div class="meme-card" data-country="usa">
       <div class="card-info">
-        <h3>Taxi Song</h3>
-        <span class="country-tag">Thailand</span>
+        <h3>Knock Knock</h3>
+        <span class="country-tag">USA</span>
       </div>
       <div class="controls">
-        <button class="play-btn">▶ Play</button>
+        <button class="play-btn" data-audio="memes/knock-lnock.mp4">▶ Play</button>
         <button class="stop-btn">■ Stop</button>
       </div>
       <div class="volume-control">
@@ -534,26 +592,403 @@
       </div>
     </div>
 
-    <div class="meme-card" data-country="bangladesh">
-      <div class="image-container">
-        <div class="placeholder"></div>
-      </div>
+
+    <div class="meme-card" data-country="usa">
       <div class="card-info">
-        <h3>Cricket Celebration</h3>
-        <span class="country-tag">Bangladesh</span>
+        <h3>Trump</h3>
+        <span class="country-tag">USA</span>
       </div>
       <div class="controls">
-        <button class="play-btn">▶ Play</button>
+        <button class="play-btn" data-audio="memes/trump.mp3">▶ Play</button>
         <button class="stop-btn">■ Stop</button>
       </div>
       <div class="volume-control">
         <span class="volume-icon">🔊</span>
         <input type="range" class="volume-slider" min="0" max="100" value="70">
+      </div>
+    </div>
+
+    <div class="meme-card" data-country="usa">
+      <div class="card-info">
+        <h3>Sad violin</h3>
+        <span class="country-tag">USA</span>
+      </div>
+      <div class="controls">
+        <button class="play-btn" data-audio="memes/tf.nemesis.mp3">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+      </div>
+    </div>
+
+    <div class="meme-card" data-country="usa">
+      <div class="card-info">
+        <h3>I Can Do This All Day</h3>
+        <span class="country-tag">USA</span>
+      </div>
+      <div class="controls">
+        <button class="play-btn" data-audio="memes/i-can-do-this-all-day-captain-america.mp3">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+      </div>
+    </div>
+
+    <div class="meme-card" data-country="usa">
+      <div class="card-info">
+        <h3>I Got This</h3>
+        <span class="country-tag">USA</span>
+      </div>
+      <div class="controls">
+        <button class="play-btn" data-audio="memes/igotthis.mp3">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+      </div>
+    </div>
+
+    <div class="meme-card" data-country="usa">
+      <div class="card-info">
+        <h3>Shut Yo Stupid Ass Up</h3>
+        <span class="country-tag">USA</span>
+      </div>
+      <div class="controls">
+        <button class="play-btn" data-audio="memes/shut-yo-stupid-ass-up.mp3">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+      </div>
+    </div>
+
+    <div class="meme-card" data-country="russia">
+      <div class="card-info">
+        <h3>Foto</h3>
+        <span class="country-tag">Russia</span>
+      </div>
+      <div class="controls">
+        <button class="play-btn" data-audio="memes/foto.mp3">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+      </div>
+    </div>
+
+    <div class="meme-card" data-country="russia">
+      <div class="card-info">
+        <h3>SAFMV</h3>
+        <span class="country-tag">Russia</span>
+      </div>
+      <div class="controls">
+        <button class="play-btn" data-audio="memes/safmv.mp3">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+      </div>
+    </div>
+
+    <div class="meme-card" data-country="russia">
+      <div class="card-info">
+        <h3>Russian Meme</h3>
+        <span class="country-tag">Russia</span>
+      </div>
+
+      <div class="controls">
+        <button class="play-btn" data-audio="memes/russian-meme.mp3">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+      </div>
+
+    </div>
+
+    <div class="meme-card" data-country="russia">
+      <div class="card-info">
+        <h3>Blayt</h3>
+        <span class="country-tag">Russia</span>
+      </div>
+      <div class="controls">
+        <button class="play-btn" data-audio="memes/blayt.mp3">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+      </div>
+    </div>
+
+    <div class="meme-card" data-country="russia">
+      <div class="card-info">
+        <h3>Oi Oi Oe</h3>
+        <span class="country-tag">Russia</span>
+      </div>
+      <div class="controls">
+        <button class="play-btn" data-audio="memes/oi-oi-oe-a-eye-eye.mp3">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+      </div>
+    </div>
+
+    <div class="meme-card" data-country="russia">
+      <div class="card-info">
+        <h3>Helikopter</h3>
+        <span class="country-tag">Russia</span>
+      </div>
+
+      <div class="controls">
+        <button class="play-btn" data-audio="memes/helikopter.mp3">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+      </div>
+    </div>
+
+    <div class="meme-card" data-country="germany">
+      <div class="card-info">
+        <h3>Hellow</h3>
+
+        <span class="country-tag">Germany</span>
+      </div>
+      <div class="controls">
+        <button class="play-btn" data-audio="memes/hellow.mp3">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+      </div>
+    </div>
+
+
+    <div class="meme-card" data-country="germany">
+      <div class="card-info">
+        <h3>Skib</h3>
+        <span class="country-tag">Germany</span>
+      </div>
+
+      <div class="controls">
+        <button class="play-btn" data-audio="memes/skib.mp3">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+      </div>
+    </div>
+
+    <div class="meme-card" data-country="germany">
+      <div class="card-info">
+        <h3>Vibe</h3>
+        <span class="country-tag">Germany</span>
+      </div>
+      <div class="controls">
+        <button class="play-btn" data-audio="memes/vibe.mp3">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+      </div>
+    </div>
+
+    <div class="meme-card" data-country="germany">
+      <div class="card-info">
+        <h3>Germany</h3>
+        <span class="country-tag">Germany</span>
+      </div>
+
+      <div class="controls">
+        <button class="play-btn" data-audio="memes/germany.mp3">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+      </div>
+    </div>
+
+
+    <div class="meme-card" data-country="poland">
+      <div class="card-info">
+        <h3>No Co Kurwa</h3>
+        <span class="country-tag">Poland</span>
+
+      </div>
+      <div class="controls">
+        <button class="play-btn" data-audio="memes/no-co-kurwa.mp3">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+      </div>
+    </div>
+
+    <div class="meme-card" data-country="poland">
+      <div class="card-info">
+
+        <h3>No Problem</h3>
+        <span class="country-tag">Poland</span>
+      </div>
+      <div class="controls">
+
+        <button class="play-btn" data-audio="memes/npprob.mp3">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+      </div>
+    </div>
+
+    <div class="meme-card" data-country="spain">
+      <div class="card-info">
+        <h3>Lo Siento Wilson</h3>
+        <span class="country-tag">Spain</span>
+
+      </div>
+      <div class="controls">
+        <button class="play-btn" data-audio="memes/lo-siento-wilson.mp3">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+      </div>
+
+    </div>
+
+
+    <div class="meme-card" data-country="uk">
+      <div class="card-info">
+        <h3>British Rap</h3>
+        <span class="country-tag">UK</span>
+
+      </div>
+
+      <div class="controls">
+
+        <button class="play-btn" data-audio="memes/british-rap.mp3">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+      </div>
+    </div>
+
+
+    <div class="meme-card" data-country="uk">
+      <div class="card-info">
+        <h3>Happiest Man In Birmingham</h3>
+        <span class="country-tag">UK</span>
+      </div>
+
+      <div class="controls">
+        <button class="play-btn" data-audio="memes/happiest-man-in-birmingham.mp3">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+      </div>
+    </div>
+
+
+    <div class="meme-card" data-country="uk">
+      <div class="card-info">
+        <h3>MLG Airhorn</h3>
+        <span class="country-tag">UK</span>
+
+      </div>
+      <div class="controls">
+        <button class="play-btn" data-audio="memes/mlg-airhorn.mp3">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+      </div>
+
+    </div>
+
+    <div class="meme-card" data-country="uk">
+      <div class="card-info">
+        <h3>Holy Moly Emoji</h3>
+        <span class="country-tag">UK</span>
+      </div>
+      <div class="controls">
+        <button class="play-btn" data-audio="memes/holy-moly-emoji.mp3">▶ Play</button>
+
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+      </div>
+    </div>
+
+
+    <div class="meme-card" data-country="uk">
+      <div class="card-info">
+        <h3>No More Cuss Word</h3>
+
+        <span class="country-tag">UK</span>
+      </div>
+      <div class="controls">
+        <button class="play-btn" data-audio="memes/no-more-cuss-word.mp3">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+
+      </div>
+    </div>
+
+    <div class="meme-card" data-country="newzealand">
+      <div class="card-info">
+        <h3>Marcus New Zealand</h3>
+        <span class="country-tag">New Zealand</span>
+
+      </div>
+      <div class="controls">
+        <button class="play-btn" data-audio="memes/marcus-i-accidentally-removed-new-zealand.mp3">▶ Play</button>
+        <button class="stop-btn">■ Stop</button>
+      </div>
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" min="0" max="100" value="70">
+
       </div>
     </div>
 
   </div>
-
 
   <script>
     const filterDropdown = document.getElementById('countryFilter');
@@ -563,37 +998,76 @@
       const selectedCountry = filterDropdown.value;
       
       memeCards.forEach(card => {
-        if (selectedCountry === 'all' || card.dataset.country === selectedCountry) {
+        const cardCountry = card.dataset.country;
+        if (selectedCountry === 'all' || cardCountry === 'all' || cardCountry === selectedCountry) {
           card.classList.remove('hidden');
         } else {
           card.classList.add('hidden');
         }
       });
+
     });
 
-    const playButtons = document.querySelectorAll('.play-btn');
-    const stopButtons = document.querySelectorAll('.stop-btn');
+    let currentAudio = null;
 
-    playButtons.forEach((button, index) => {
-      button.addEventListener('click', () => {
-        button.style.background = '#ffffff';
-        button.style.color = '#000000';
-      });
-    });
-    
+    let currentPlayButton = null;
 
-    stopButtons.forEach((button, index) => {
+    document.querySelectorAll('.play-btn').forEach(button => {
       button.addEventListener('click', () => {
+        const audioFile = button.dataset.audio;
         const card = button.closest('.meme-card');
-        const playBtn = card.querySelector('.play-btn');
-        playBtn.style.background = '#ff0000';
-        playBtn.style.color = '#000000';
+        const volumeSlider = card.querySelector('.volume-slider');
+        
+        if (currentAudio && !currentAudio.paused) {
+          currentAudio.pause();
+          currentAudio.currentTime = 0;
+          if (currentPlayButton) {
+            currentPlayButton.style.background = '#ff0000';
+            currentPlayButton.style.color = '#000000';
+
+          }
+        }
+
+        currentAudio = new Audio(audioFile);
+        currentAudio.volume = volumeSlider.value / 100;
+        
+        currentAudio.play().then(() => {
+          button.style.background = '#ffffff';
+          button.style.color = '#000000';
+          currentPlayButton = button;
+        }).catch(error => {
+          console.error('Error playing audio:', error);
+          alert('Could not play audio. Make sure the file path is correct: ' + audioFile);
+        });
+
+
+        currentAudio.addEventListener('ended', () => {
+          button.style.background = '#ff0000';
+          button.style.color = '#000000';
+          currentPlayButton = null;
+        });
+
+        volumeSlider.addEventListener('input', () => {
+          if (currentAudio) {
+            currentAudio.volume = volumeSlider.value / 100;
+          }
+        });
       });
     });
 
+    document.querySelectorAll('.stop-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        if (currentAudio) {
+          currentAudio.pause();
+          currentAudio.currentTime = 0;
+        }
+        if (currentPlayButton) {
+          currentPlayButton.style.background = '#ff0000';
+          currentPlayButton.style.color = '#000000';
+          currentPlayButton = null;
+        }
+      });
+    });
   </script>
 </body>
 </html>
-
-
-

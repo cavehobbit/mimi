@@ -238,6 +238,7 @@ h1 {
   -webkit-appearance: none;
   appearance: none;
   width: 20px;
+
   height: 20px;
   background: #ff0000;
   cursor: pointer;
@@ -256,6 +257,7 @@ h1 {
   width: 20px;
   height: 20px;
   background: #ff0000;
+
   cursor: pointer;
   border: 2px solid #000000;
 }
@@ -264,6 +266,7 @@ h1 {
 
 .volume-slider::-moz-range-thumb:hover {
   background: #ffffff;
+
 }
 
 
@@ -271,6 +274,7 @@ h1 {
 @media (max-width: 1024px) {
   .filter-container {
     position: static;
+
     margin-top: 20px;
   }
   
@@ -286,11 +290,13 @@ h1 {
 @media (max-width: 768px) {
   h1 {
     font-size: 2.5rem;
+
   }
 
 
   
   .meme-grid {
+
     grid-template-columns: 1fr;
     gap: 30px;
   }
@@ -305,6 +311,7 @@ h1 {
 
 @media (max-width: 480px) {
   h1 {
+
     font-size: 2rem;
     letter-spacing: 2px;
   }
@@ -316,6 +323,7 @@ h1 {
   }
   
   .controls {
+
     flex-direction: column;
   }
 }
@@ -325,3 +333,5 @@ h1 {
 body {
   font-size: large;
 }
+
+
